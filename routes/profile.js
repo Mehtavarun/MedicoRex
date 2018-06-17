@@ -13,21 +13,7 @@ const schema = require('../db');
 
 
 // route to verify the user and delete the profile of patient
-	app.delete('/api/profile/delete/:token', (req, res, next)=>{
-
-
-		let token =  req.query.token || req.headers['authorization'] || req.params.token;
-		
-		//if token is recieved
-		if(token){
-
-			//verify token with same key
-			jwt.verify(token, 'supersafesecretkey', (err, authData)=>{
-				
-				//if invalid token is sent then send message FORBIDDEN
-				if(err) {
-					res.sendStatus(403);
-				}else{
+	app.delete('/api/profile/delete/:id', (req, res, next)=>{
 
 					//User is found by ID  then deleted and 
 					//in response the data is sent which is deleted
@@ -36,13 +22,6 @@ const schema = require('../db');
 					.then ((data)=>{
 						res.send(data);
 					}).catch(next);										
-				}
-			});	
-
-			//if no token is sent then send message FORBIDDEN
-		} else {
-			res.sendStatus(403);
-		}
 	});
 
 
