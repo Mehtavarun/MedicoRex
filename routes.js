@@ -1,4 +1,4 @@
-module.exports = (app, urlencodedParser, mongo, url) =>{
+module.exports = (app, urlencodedParser, mongo, jwt) =>{
 
 	
 
