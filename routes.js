@@ -1,8 +1,6 @@
 module.exports = (app, urlencodedParser, mongo, url) =>{
 
-	app.get('*',(req, res)=>{
-		res.sendStatus(404);
-	});
+	
 
 	app.get('/token/:user', (req, res)=>{
 
